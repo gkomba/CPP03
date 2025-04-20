@@ -6,7 +6,7 @@
 /*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 09:28:46 by gkomba            #+#    #+#             */
-/*   Updated: 2025/04/19 09:38:47 by gkomba           ###   ########.fr       */
+/*   Updated: 2025/04/20 08:53:09 by gkomba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,13 @@ class ClapTrap
         int Attack_damage;
 
     public:
-        ClapTrap(std::string new_name);
+        ClapTrap(std::string name);
         ClapTrap(const ClapTrap& object);
         ClapTrap& operator=(const ClapTrap& object);
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
         ~ClapTrap();
-}
+};
+
+#endif
