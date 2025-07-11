@@ -6,7 +6,7 @@
 /*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 13:57:29 by gkomba            #+#    #+#             */
-/*   Updated: 2025/07/10 09:59:44 by gkomba           ###   ########.fr       */
+/*   Updated: 2025/07/11 17:35:02 by gkomba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,5 @@ int main(void)
     Kupesa.beRepaired(5);
 
     std::cout << "olamundo" << std::endl;
+    return (0);
 }

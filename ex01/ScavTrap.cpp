@@ -6,7 +6,7 @@
 /*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 12:38:07 by gkomba            #+#    #+#             */
-/*   Updated: 2025/07/10 09:59:44 by gkomba           ###   ########.fr       */
+/*   Updated: 2025/07/11 18:49:41 by gkomba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
     this->name = "";
-    this->AttackDamage = 20;
-    this->EnergyPoints = 50;
-    this->HitPoints = 100;
+    this->attackDamage = 20;
+    this->energyPoints = 50;
+    this->hitPoints = 100;
     std::cout << "Default constructor was called on ScavTrap!" << std::endl;
 }
 ScavTrap::ScavTrap(const std::string _name) : ClapTrap(_name)
 {
     this->name = _name;
-    this->AttackDamage = 20;
-    this->EnergyPoints = 50;
-    this->HitPoints = 100;
-    std::cout << "Default Parametrer constructor was called on ScavTrap " << this->name << " !!" << std::endl;
+    this->attackDamage = 20;
+    this->energyPoints = 50;
+    this->hitPoints = 100;
+    std::cout << "Default Parametrer constructor was called on ScavTrap " << this->name << "!" << std::endl;
 }
 ScavTrap::ScavTrap(const ScavTrap &subject) : ClapTrap(subject)
 {
-    std::cout << "Copy constructor was called on ScavTrap " << this->name << " !!" << std::endl;
+    std::cout << "Copy constructor was called on ScavTrap " << this->name << "!" << std::endl;
 }
 ScavTrap   &ScavTrap::operator=(const ScavTrap &subject)
 {
@@ -39,7 +39,7 @@ ScavTrap   &ScavTrap::operator=(const ScavTrap &subject)
     {
         ClapTrap::operator=(subject);
     }
-    std::cout << "Copy assignment constructor was called on ScavTrap " << old_name << " !!" << std::endl;
+    std::cout << "Copy assignment constructor was called on ScavTrap " << old_name << "!" << std::endl;
     return (*this);
 }
 
@@ -55,42 +55,17 @@ void ScavTrap::guardGate(void)
 
 void    ScavTrap::attack(const std::string &target)
 {
-    if (this->HitPoints > 0 && this->EnergyPoints > 0)
+    if (this->hitPoints > 0 && this->energyPoints > 0)
     {
         std::cout << "ScavTrap " << this->name;
         std::cout << " attacks " << target;
-        std::cout << ", causing " << this->AttackDamage << " points of Damage!";
+        std::cout << ", causing " << this->attackDamage << " points of Damage!";
         std::cout << std::endl;
-        this->EnergyPoints -= 1;
+        this->energyPoints -= 1;
     }
     else
     {
         std::cout << "ScavTrap " << this->name << " Has not enough Hit or Energy points";
         std::cout << std::endl;
-    }
-}
-
-void    ScavTrap::beRepaired(unsigned int amount)
-{
-    if (this->HitPoints && this->EnergyPoints)
-    {
-        this->HitPoints -= amount;
-        this->EnergyPoints -= 1;
-        std::cout << "ClapTarp " << this->name << " repairs itself, recovering ";
-        std::cout << amount << " hit points!" << std::endl;
-    }
-    else
-        std::cout << "ClapTrap " << this->name << " has not enough Energy points or Hit points\n";
-}
-
-void    ScavTrap::takeDamage(unsigned int amount)
-{
-    if (this->HitPoints > 0)
-    {
-        if (this->HitPoints < amount)
-            this->HitPoints = 0;
-        else
-            this->HitPoints -= amount;
-        std::cout << "ClapTrap " << this->name << " received " << amount << " points of damage!" << std::endl;
     }
 }

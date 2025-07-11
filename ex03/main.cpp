@@ -6,7 +6,7 @@
 /*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 07:11:06 by gkomba            #+#    #+#             */
-/*   Updated: 2025/07/11 16:14:38 by gkomba           ###   ########.fr       */
+/*   Updated: 2025/07/11 17:35:44 by gkomba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,11 @@
 
 int     main(void)
 {
-    std::cout << "Hello World" << std::endl;
-
-    DiamondTrap A("MAX");
+    DiamondTrap A("gkomba");
     std::cout << "Name: " << A.getName() << std::endl;
-    std::cout << "HitPoints: " << A.getHitPoints() << std::endl;
-    std::cout << "EnergyPoints: " << A.getEnergyPoints() << std::endl;
-    std::cout << "AttackDamage: " << A.getAttackDamage() << std::endl;
+    std::cout << "hitPoints: " << A.getHitPoints() << std::endl;
+    std::cout << "energyPoints: " << A.getEnergyPoints() << std::endl;
+    std::cout << "attackDamage: " << A.getAttackDamage() << std::endl;
     A.whoAmI();
     A.attack("Enemy");
     A.guardGate();

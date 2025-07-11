@@ -6,7 +6,7 @@
 /*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 07:02:06 by gkomba            #+#    #+#             */
-/*   Updated: 2025/07/11 16:15:23 by gkomba           ###   ########.fr       */
+/*   Updated: 2025/07/11 16:59:57 by gkomba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 
 ScavTrap::ScavTrap(void)
 {
-    this->AttackDamage = 20;
-    this->EnergyPoints = 50;
-    this->HitPoints = 100;
+    this->attackDamage = 20;
+    this->energyPoints = 50;
+    this->hitPoints = 100;
 }
 
 ScavTrap::ScavTrap(const std::string _name)
 {
     this->name = _name;
-    this->AttackDamage = 20;
-    this->EnergyPoints = 50;
-    this->HitPoints = 100;
+    this->attackDamage = 20;
+    this->energyPoints = 50;
+    this->hitPoints = 100;
     std::cout << "Default parameterized constructor was called on ScavTrap " << this->name << "!" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &object) : ClapTrap(object)
 {
     this->name = object.name;
-    this->AttackDamage = object.AttackDamage;
-    this->EnergyPoints = object.EnergyPoints;
-    this->HitPoints = object.HitPoints;
+    this->attackDamage = object.attackDamage;
+    this->energyPoints = object.energyPoints;
+    this->hitPoints = object.hitPoints;
     std::cout << "Copy constructor was called on ScavTrap " << this->name << "!" << std::endl;
 }
 
@@ -55,11 +55,11 @@ ScavTrap::~ScavTrap(void)
 
 void    ScavTrap::attack(const std::string &target)
 {
-    if (this->HitPoints && this->EnergyPoints)
+    if (this->hitPoints && this->energyPoints)
     {
-        this->EnergyPoints -= 1;
+        this->energyPoints -= 1;
         std::cout << "ScavTrap " << this->name << " attacks ";
-        std::cout << target << ", causing " << this->AttackDamage;
+        std::cout << target << ", causing " << this->attackDamage;
         std::cout << " points of damage!" << std::endl;
     }
     else

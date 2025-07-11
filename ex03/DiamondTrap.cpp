@@ -6,7 +6,7 @@
 /*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 08:20:46 by gkomba            #+#    #+#             */
-/*   Updated: 2025/07/11 16:16:55 by gkomba           ###   ########.fr       */
+/*   Updated: 2025/07/11 18:48:13 by gkomba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap()
 {
     this->name = "";
-    this->HitPoints = FragTrap::HitPoints;
-    this->EnergyPoints = ScavTrap::EnergyPoints;
-    this->AttackDamage = FragTrap::AttackDamage;
+    this->hitPoints = FragTrap().getHitPoints();
+    this->energyPoints = ScavTrap().getAttackDamage();
+    this->attackDamage = FragTrap().getAttackDamage();
     std::cout << "Default Constructor was Called on DiamondTrap!" << std::endl;
 }
 
@@ -25,9 +25,9 @@ DiamondTrap::DiamondTrap(const std::string _name) : ClapTrap(_name + "_clap_name
 {
     this->name = _name;
     ClapTrap::name = _name + "_clap_name";
-    this->HitPoints = FragTrap().getHitPoints();
-    this->EnergyPoints = ScavTrap().getEnergyPoints();
-    this->AttackDamage = FragTrap().getAttackDamage();
+    this->hitPoints = FragTrap().getHitPoints();
+    this->energyPoints = ScavTrap().getAttackDamage();
+    this->attackDamage = FragTrap().getAttackDamage();
     std::cout << "Default parameterized constructor was called on DiamondTrap " << this->name << "!" << std::endl;
 
 }
@@ -65,4 +65,9 @@ void    DiamondTrap::whoAmI(void)
 std::string        DiamondTrap::getName(void) const
 {
     return (this->name);
+}
+
+void DiamondTrap::attack(const std::string &target)
+{
+    ScavTrap::attack(target);
 }

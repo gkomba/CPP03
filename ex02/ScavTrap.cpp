@@ -6,7 +6,7 @@
 /*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 02:10:24 by gkomba            #+#    #+#             */
-/*   Updated: 2025/07/10 09:59:44 by gkomba           ###   ########.fr       */
+/*   Updated: 2025/07/11 17:30:30 by gkomba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
     this->name = "";
-    this->AttackDamage = 20;
-    this->EnergyPoints = 50;
-    this->HitPoints = 100;
+    this->attackDamage = 20;
+    this->energyPoints = 50;
+    this->hitPoints = 100;
 }
 
 ScavTrap::ScavTrap(const std::string _name) : ClapTrap(_name)
 {
     this->name = _name;
-    this->AttackDamage = 20;
-    this->EnergyPoints = 50;
-    this->HitPoints = 100;
-    std::cout << "Default parameterized constructor was called on ScavTrap " << this->name << "!" << std::endl;
+    this->attackDamage = 20;
+    this->energyPoints = 50;
+    this->hitPoints = 100;
+    std::cout << "Parameterized constructor was called on ScavTrap " << this->name << "!" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &object) : ClapTrap(object)
@@ -52,11 +52,11 @@ ScavTrap::~ScavTrap(void)
 
 void    ScavTrap::attack(const std::string &target)
 {
-    if (this->HitPoints && this->EnergyPoints)
+    if (this->hitPoints && this->energyPoints)
     {
-        this->EnergyPoints -= 1;
+        this->energyPoints -= 1;
         std::cout << "ScavTrap " << this->name << " attacks ";
-        std::cout << target << ", causing" << this->AttackDamage;
+        std::cout << target << ", causing" << this->attackDamage;
         std::cout << " points of damage!" << std::endl;
     }
     else

@@ -6,7 +6,7 @@
 /*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 06:40:26 by gkomba            #+#    #+#             */
-/*   Updated: 2025/07/11 16:11:58 by gkomba           ###   ########.fr       */
+/*   Updated: 2025/07/11 17:01:59 by gkomba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 ClapTrap::ClapTrap(void)
 {
     this->name = "";
-    this->AttackDamage = 0;
-    this->EnergyPoints = 10;
-    this->HitPoints = 10;
+    this->attackDamage = 0;
+    this->energyPoints = 10;
+    this->hitPoints = 10;
     std::cout << "Default constructor was called on Claptrap!!" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string _name)
 {
     this->name = _name;
-    this->AttackDamage = 0;
-    this->EnergyPoints = 10;
-    this->HitPoints = 10;
+    this->attackDamage = 0;
+    this->energyPoints = 10;
+    this->hitPoints = 10;
     std::cout << "Default parametizader constructor was called on Claptrap " << this->name << "!!" << std::endl;    
 }
 
 ClapTrap::ClapTrap(const ClapTrap &object)
 {
     this->name = object.name;
-    this->AttackDamage = object.AttackDamage;
-    this->EnergyPoints = object.EnergyPoints;
-    this->HitPoints = object.HitPoints;
+    this->attackDamage = object.attackDamage;
+    this->energyPoints = object.energyPoints;
+    this->hitPoints = object.hitPoints;
     std::cout << "Copy constructor was called on Claptrap " << this->name << "!!" << std::endl;    
 }
 
@@ -45,9 +45,9 @@ ClapTrap    &ClapTrap::operator=(const ClapTrap &object)
     if (this != &object)
     {
         this->name = object.name;
-        this->AttackDamage = object.AttackDamage;
-        this->EnergyPoints = object.EnergyPoints;
-        this->HitPoints = object.HitPoints;
+        this->attackDamage = object.attackDamage;
+        this->energyPoints = object.energyPoints;
+        this->hitPoints = object.hitPoints;
     }
     return (*this);
 }
@@ -59,11 +59,11 @@ ClapTrap::~ClapTrap(void)
 
 void    ClapTrap::attack(const std::string &target)
 {
-    if (this->HitPoints > 0 && this->EnergyPoints)
+    if (this->hitPoints > 0 && this->energyPoints)
     {
-        this->EnergyPoints -= 1;
+        this->energyPoints -= 1;
         std::cout << "ClapTrap " << this->name << " attacks ";
-        std::cout << target << ", causing" << this->AttackDamage;
+        std::cout << target << ", causing" << this->attackDamage;
         std::cout << " points of damage!" << std::endl;
     }
     else
@@ -74,28 +74,28 @@ void    ClapTrap::attack(const std::string &target)
 
 void    ClapTrap::beRepaired(unsigned int amount)
 {
-    if (this->HitPoints && this->EnergyPoints)
+    if (this->hitPoints && this->energyPoints)
     {
-        this->HitPoints += amount;
-        this->EnergyPoints -= 1;
+        this->hitPoints += amount;
+        this->energyPoints -= 1;
         std::cout << "ClapTarp " << this->name << " repairs itself, recovering ";
         std::cout << amount << " hit points!" << std::endl;
     }
     else
     {
-        std::cout << "ClapTrap " << this->name << " Has not enough HitPoints or EnergyPoints";
+        std::cout << "ClapTrap " << this->name << " Has not enough hitPoints or energyPoints";
         std::cout << std::endl;
     }
 }
 
 void    ClapTrap::takeDamage(unsigned int amount)
 {
-    if (this->HitPoints && this->EnergyPoints)
+    if (this->hitPoints && this->energyPoints)
     {
-        if (this->HitPoints < amount)
-            this->HitPoints = 0;
+        if (this->hitPoints < amount)
+            this->hitPoints = 0;
         else
-            this->HitPoints -= amount;
+            this->hitPoints -= amount;
     }
     std::cout << "ClapTrap " << this->name << " received " << amount;
     std::cout << " Points f Damage!" << std::endl;
@@ -108,17 +108,17 @@ std::string ClapTrap::getName(void) const
 
 int         ClapTrap::getAttackDamage(void) const
 {
-    return (this->AttackDamage);
+    return (this->attackDamage);
 }
 
 int         ClapTrap::getEnergyPoints(void) const
 {
-    return (this->EnergyPoints);
+    return (this->energyPoints);
 }
 
 int         ClapTrap::getHitPoints(void) const
 {
-    return (this->HitPoints);
+    return (this->hitPoints);
 }
 
 void        ClapTrap::setName(std::string _name)
@@ -128,13 +128,13 @@ void        ClapTrap::setName(std::string _name)
 
 void        ClapTrap::setAttackDamage(unsigned int value)
 {
-    this->AttackDamage = value;
+    this->attackDamage = value;
 }
 void        ClapTrap::setEnergyPoints(unsigned int value)
 {
-    this->EnergyPoints = value;
+    this->energyPoints = value;
 }
 void        ClapTrap::setHitPoints(unsigned int value)
 {
-    this->HitPoints = value;
+    this->hitPoints = value;
 }

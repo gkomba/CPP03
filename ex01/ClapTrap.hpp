@@ -6,7 +6,7 @@
 /*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 16:41:06 by gkomba            #+#    #+#             */
-/*   Updated: 2025/07/10 09:59:44 by gkomba           ###   ########.fr       */
+/*   Updated: 2025/07/11 18:50:33 by gkomba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 # define CLAPTRAP_HPP
 # include <iostream>
 # include <string>
-
 class ClapTrap
 {
     protected:
         std::string         name;
-        unsigned int        HitPoints;
-        unsigned int        AttackDamage;
-        unsigned int        EnergyPoints;
-        void                PrintStatus(void);
+        unsigned int        hitPoints;
+        unsigned int        attackDamage;
+        unsigned int        energyPoints;
         
     public:
         ClapTrap(void);
@@ -30,17 +28,17 @@ class ClapTrap
         ClapTrap(const ClapTrap &object);
         ClapTrap    &operator=(const ClapTrap &object);
         ~ClapTrap(void);
-        virtual void        attack(const std::string &target);
-        virtual void        takeDamage(unsigned int amount);
-        virtual void        beRepaired(unsigned int amount);
-        std::string getname(void) const;
-        int         getHitPoints(void) const;
-        int         getAttackDamage(void) const;
-        int         getEnergyPoints(void) const;
-        void        setname(std::string _name);
-        void        setHitPoints(unsigned int value);
-        void        setAttackDamage(unsigned int value);
-        void        setEnergyPoints(unsigned int value);
+        virtual void    attack(const std::string &target);
+        void            takeDamage(unsigned int amount);
+        void            beRepaired(unsigned int amount);
+        std::string     getname(void) const;
+        int             gethitPoints(void) const;
+        int             getattackDamage(void) const;
+        int             getenergyPoints(void) const;
+        void            setname(std::string _name);
+        void            sethitPoints(unsigned int value);
+        void            setattackDamage(unsigned int value);
+        void            setenergyPoints(unsigned int value);
 };
 
 #endif

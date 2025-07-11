@@ -6,7 +6,7 @@
 /*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 23:29:21 by gkomba            #+#    #+#             */
-/*   Updated: 2025/07/10 09:59:44 by gkomba           ###   ########.fr       */
+/*   Updated: 2025/07/11 17:13:37 by gkomba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 # define CLAPTRAP_HPP
 # include <iostream>
 # include <string>
-
 class ClapTrap
 {
     protected:
         std::string     name;
-        unsigned int    HitPoints;
-        unsigned int    EnergyPoints;
-        unsigned int    AttackDamage;
+        unsigned int    hitPoints;
+        unsigned int    energyPoints;
+        unsigned int    attackDamage;
         void            PrintStatus(void);
     
     public:
@@ -34,13 +33,13 @@ class ClapTrap
         virtual void        takeDamage(unsigned int amount);
         virtual void        beRepaired(unsigned int amount); 
         std::string         getname(void) const;
-        int                 getHitPoints(void) const;
-        int                 getAttackDamage(void) const;
-        int                 getEnergyPoints(void) const;
+        int                 gethitPoints(void) const;
+        int                 getattackDamage(void) const;
+        int                 getenergyPoints(void) const;
         void                setname(std::string _name);
-        void                setHitPoints(unsigned int value);
-        void                setAttackDamage(unsigned int value);
-        void                setEnergyPoints(unsigned int value);
+        void                sethitPoints(unsigned int value);
+        void                setattackDamage(unsigned int value);
+        void                setenergyPoints(unsigned int value);
 };
 
 #endif
